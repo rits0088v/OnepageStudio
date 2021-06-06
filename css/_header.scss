@@ -1,0 +1,176 @@
+#header{
+	float:left;
+	width:100%;
+	height:auto;
+	padding:30px 0px;
+	position:fixed;
+	z-index:99;
+	transition-duration: 300ms;
+	-webkit-transition-duration: 300ms;
+	-moz-transition-duration: 300ms;
+    transition-property: all;
+	-webkit-transition-property: all;
+	-moz-transition-property: all;
+    transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1);
+	-webkit-transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1);
+	-moz-transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1);
+	.header-main{
+		@extend .section;
+		.logo{
+			float:left;	
+			width:263px;
+			height:auto;
+			a{
+				float:left;
+				width:100%;
+				height:auto;
+				@include transition (all 0.25s ease-out 0s);
+				&.fav-logo {
+					width: 40px;
+				}
+			}
+		}
+		.header-right{
+			float:right;
+			width:auto;
+			@include transition (all 0.25s ease-out 0s);
+			.nav{
+				float:right;
+				width:auto;
+				height:auto;
+				position:relative;
+				.nav-main{
+					float:left;
+					width:auto;
+					@include transition (all 0.25s ease-out 0s);
+					ul{
+						float:left;
+						width:100%;
+						height:auto;
+						li{
+							float:left;
+							width:auto;
+							position:relative;
+							margin:15px 0 0 45px;
+							a{
+								float:left;
+								width:auto;
+								height:auto;
+								font-family: $PopFont;
+								font-size:14px;
+								font-weight:500;
+								color:white;
+								line-height:120%;
+								text-decoration:none;
+								text-transform:uppercase;
+								@include transition (all 0.25s ease-out 0s);
+								position:relative;
+								letter-spacing: 0.2px;
+								&::before {
+									position: absolute;
+									left: 0;
+									right: 0;
+									bottom: -2px;
+									width: 0;
+									margin: 0 auto;
+									height: 1px;
+									background: $orange;
+									content: "";
+									opacity: 0;
+									visibility: hidden;
+									@include transition (all 0.25s ease-out 0s);
+								}
+								&:hover {
+									color:$orange;
+									&::before {
+										width: 50%;
+										opacity: 1;
+										visibility: visible;
+									}
+								}
+							}
+							&:first-child {
+								margin-left: 0px !important;
+							}
+						}
+					}
+				}
+			}
+		}
+	}	
+	&.affix{
+		background:rgba(0,25,76,1);
+		@include box-shadow (0 0 10px rgba(0, 0, 0, 0.15));
+		padding:15px 0;
+	}
+}
+.fav-logo {
+	display: none;
+}
+/*-----------------res-nav-Start-------------------*/
+.res_navigation{
+	display:none;
+	width:72px;
+	height:22px;
+	position:absolute;
+	@include transition (all 0.25s ease-out 0s);
+	.nav-toggle {
+		position: absolute;
+		top:0;
+		right:22px;
+		z-index: 999999;
+		padding:5px 35px 13px 0;
+		cursor: pointer;
+		&:focus {
+			outline: none;
+		}
+		&.active {
+			span {
+				width: 100% !important;
+			}
+			.top {
+				@include transform (translateY(12px) translateX(0) rotate(45deg));
+				background:white;
+			}
+			.middle {
+				opacity: 0;
+				background: white;
+		  	}
+			.bottom {
+				@include transform (translateY(-7px) translateX(0) rotate(-45deg));
+				   background:white;
+			}
+		}
+		span {
+			background:$orange;
+			border: none;
+			height: 2px;
+			width: 100%;
+			position: absolute;
+			top:-2px;
+			right: 0;
+			@include transition (all 0.25s ease-out 0s);
+			cursor: pointer;
+			&:first-child {
+				width: 60%;
+			}
+			&:nth-of-type(2) {
+				top:7px;
+				width: 80%;
+			}
+			&:nth-of-type(3) {
+				top:16px;
+			}
+		}
+	}
+}
+// #header.affix .nav-toggle span{
+// 	background:#91AD89;
+// }
+// #header.affix  .nav-toggle.active span{
+// 	background:white;
+// }
+/*-----------------res-nav-end-------------------*/
+.fadeInDown,.fadeInLeft,.fadeInRight,.fadeInUp,.wow,.zoomIn{
+	visibility:hidden
+}
