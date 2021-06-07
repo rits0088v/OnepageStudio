@@ -6,4 +6,4 @@ Log the hours that has spent for task:
   4th June'21: 3hrs
   6th June'21: 5:30hrs
   -------------------
-  Total: 20hrs
+  Total: 19.30hrs
